@@ -20,11 +20,22 @@ function clickedBox(e){
     console.log(gameArr);
 }
 
+function mouseOver(e){
+    const cell = e.target;
+    cell.classList.add("hover");
+}
+function mouseOut(e){
+    const cell = e.target;
+    cell.classList.remove("hover");
+}
+
 window.onload = function (){displayBoard()}
 function displayBoard(){
     var layout = document.getElementById("board").childNodes;
     layout.forEach(elem => {
         elem.className ="square";
         elem.addEventListener("click",clickedBox);
+        elem.addEventListener("mouseover", mouseOver);
+        elem.addEventListener("mouseout", mouseOut);
     });  
 }
